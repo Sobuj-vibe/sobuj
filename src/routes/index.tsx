@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { portfolioListQuery } from "@/lib/queries";
 import { quickStats, services, site } from "@/lib/site";
+import LogoCloudBlock from "@/components/ui/logo-cloud-3";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -138,6 +139,14 @@ function Index() {
           </motion.div>
         </div>
       </section>
+
+      <Reveal
+        as="section"
+        className="border-b border-hairline"
+        stagger={0.09}
+      >
+        <LogoCloudBlock />
+      </Reveal>
 
       <Reveal
         as="section"
