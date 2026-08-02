@@ -251,7 +251,6 @@ export type Database = {
         }
         Returns: boolean
       }
-      increment_post_views: { Args: { _slug: string }; Returns: number }
     }
     Enums: {
       app_role: "admin" | "editor" | "user"
