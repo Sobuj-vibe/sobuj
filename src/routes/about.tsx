@@ -93,7 +93,7 @@ function About() {
             data-reveal
             src={site.images.signature}
             alt={`${site.name} signature`}
-            className="mt-10 h-16 w-auto opacity-85 mix-blend-multiply dark:mix-blend-screen dark:invert"
+            className="mt-10 h-16 w-auto opacity-85 mix-blend-multiply dark:mix-blend-lighten dark:invert"
           />
         </Reveal>
 
