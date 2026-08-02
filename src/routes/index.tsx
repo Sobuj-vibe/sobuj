@@ -63,8 +63,8 @@ function Index() {
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,var(--color-accent),transparent_60%)] opacity-60"
           aria-hidden
         />
-        <div className="relative mx-auto grid w-full max-w-[1240px] items-center gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-32">
-          <div>
+        <div className="relative mx-auto flex w-full max-w-[1240px] flex-col-reverse items-center gap-14 px-5 py-24 sm:px-8 lg:flex-row lg:items-center lg:py-32">
+          <div className="w-full lg:w-[55%]">
             <motion.p
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
@@ -117,7 +117,7 @@ function Index() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-full max-w-md"
+            className="relative w-full lg:w-[45%]"
           >
             <div
               className="pointer-events-none absolute -inset-10 bg-[radial-gradient(ellipse_at_50%_40%,var(--color-primary),transparent_65%)] opacity-[0.14] blur-2xl"
