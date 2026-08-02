@@ -12,10 +12,10 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 const sections = [
   { to: "/admin", label: "Overview", exact: true },
-  { to: "/admin/portfolio", label: "Portfolio" },
-  { to: "/admin/blog", label: "Notes" },
-  { to: "/admin/pages", label: "Pages" },
-  { to: "/admin/messages", label: "Messages" },
+  { to: "/admin/portfolio", label: "Portfolio", exact: false },
+  { to: "/admin/blog", label: "Notes", exact: false },
+  { to: "/admin/pages", label: "Pages", exact: false },
+  { to: "/admin/messages", label: "Messages", exact: false },
 ] as const;
 
 function AdminLayout() {
@@ -70,7 +70,7 @@ function AdminLayout() {
               <Link
                 key={section.to}
                 to={section.to}
-                activeOptions={{ exact: section.exact ?? false }}
+                activeOptions={{ exact: section.exact }}
                 className="border border-hairline px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground data-[status=active]:border-primary data-[status=active]:text-primary"
               >
                 {section.label}
