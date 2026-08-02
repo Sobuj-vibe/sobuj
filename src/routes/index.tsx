@@ -117,7 +117,7 @@ function Index() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-full max-w-md"
+            className="relative w-full lg:w-[45%]"
           >
             <div
               className="pointer-events-none absolute -inset-10 bg-[radial-gradient(ellipse_at_50%_40%,var(--color-primary),transparent_65%)] opacity-[0.14] blur-2xl"
