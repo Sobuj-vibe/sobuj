@@ -203,18 +203,18 @@
   mix-blend-mode: multiply;
   filter: contrast(1.04) saturate(0.9);
   -webkit-mask-image: radial-gradient(
-    58% 56% at 50% 42%,
-    #000 20%,
-    rgba(0, 0, 0, 0.82) 46%,
-    rgba(0, 0, 0, 0.32) 68%,
-    transparent 86%
+    52% 54% at 50% 46%,
+    #000 34%,
+    rgba(0, 0, 0, 0.78) 58%,
+    rgba(0, 0, 0, 0.3) 78%,
+    transparent 100%
   );
   mask-image: radial-gradient(
-    58% 56% at 50% 42%,
-    #000 20%,
-    rgba(0, 0, 0, 0.82) 46%,
-    rgba(0, 0, 0, 0.32) 68%,
-    transparent 86%
+    52% 54% at 50% 46%,
+    #000 34%,
+    rgba(0, 0, 0, 0.78) 58%,
+    rgba(0, 0, 0, 0.3) 78%,
+    transparent 100%
   );
 }
 
