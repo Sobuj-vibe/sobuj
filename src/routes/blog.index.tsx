@@ -7,9 +7,10 @@ import { Reveal } from "@/components/motion/Reveal";
 import { canonical } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    tag: typeof search["tag"] === "string" && search["tag"] ? (search["tag"] as string) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { tag?: string } => {
+    const tag = search["tag"];
+    return typeof tag === "string" && tag ? { tag } : {};
+  },
   loader: ({ context }) => {
     context.queryClient.ensureQueryData(postListQuery());
   },
@@ -69,7 +70,7 @@ function BlogIndex() {
       <div className="mt-10 flex flex-wrap items-center gap-2">
         <Link
           to="/blog"
-          search={{}}
+          search={{ tag: undefined }}
           className={
             "border px-4 py-2 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors " +
             (!tag
