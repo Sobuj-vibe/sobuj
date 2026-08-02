@@ -2,7 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Night is the default theme; the day theme adds `.light` on <html>. */
+@custom-variant dark (&:where(:root:not(.light) *));
 
 /*
  * Sobuj Hossen — "Amber on Ink" design system.
