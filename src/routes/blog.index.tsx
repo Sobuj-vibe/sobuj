@@ -8,7 +8,7 @@ import { canonical } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/")({
   validateSearch: (search: Record<string, unknown>) => ({
-    tag: typeof search.tag === "string" && search.tag ? search.tag : undefined,
+    tag: typeof search["tag"] === "string" && search["tag"] ? (search["tag"] as string) : undefined,
   }),
   loader: ({ context }) => {
     context.queryClient.ensureQueryData(postListQuery());
