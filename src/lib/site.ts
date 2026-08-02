@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png.asset.json";
-import portrait from "@/assets/portrait.png.asset.json";
+import portrait from "@/assets/portrait-v2.png.asset.json";
 import signature from "@/assets/signature.png.asset.json";
 
 export const site = {
