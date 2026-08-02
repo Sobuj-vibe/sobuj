@@ -63,7 +63,7 @@ function Index() {
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,var(--color-accent),transparent_60%)] opacity-60"
           aria-hidden
         />
-        <div className="relative mx-auto flex w-full max-w-[1240px] flex-col-reverse items-center gap-14 px-5 py-24 sm:px-8 lg:flex-row lg:items-center lg:py-32">
+        <div className="relative mx-auto flex w-full max-w-[1240px] flex-col-reverse items-center gap-14 px-5 py-24 sm:px-8 lg:flex-row lg:items-center lg:h-[654px] lg:py-0">
           <div className="w-full lg:w-[55%]">
             <motion.p
               initial={{ opacity: 0, x: -12 }}
