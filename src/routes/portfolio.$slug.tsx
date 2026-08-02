@@ -158,6 +158,9 @@ function PortfolioDetail() {
             data-reveal
             src={item.cover_url}
             alt={item.title}
+            width={1600}
+            height={1000}
+            decoding="async"
             className="w-full border border-hairline object-cover"
           />
         </Reveal>
@@ -212,6 +215,9 @@ function PortfolioDetail() {
               src={src}
               alt={`${item.title} detail`}
               loading="lazy"
+              width={1600}
+              height={1000}
+              decoding="async"
               className="w-full border border-hairline object-cover"
             />
           ))}

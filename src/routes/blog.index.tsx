@@ -7,9 +7,10 @@ import { Reveal } from "@/components/motion/Reveal";
 import { canonical } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    tag: typeof search["tag"] === "string" && search["tag"] ? (search["tag"] as string) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { tag?: string } => {
+    const tag = search["tag"];
+    return typeof tag === "string" && tag ? { tag } : {};
+  },
   loader: ({ context }) => {
     context.queryClient.ensureQueryData(postListQuery());
   },

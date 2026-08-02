@@ -7,7 +7,15 @@ export function Footer() {
     <footer className="border-t border-hairline">
       <div className="mx-auto grid w-full max-w-[1240px] gap-12 px-5 py-16 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <img src={site.images.logo} alt="" className="h-6 w-auto" />
+          <img
+            src={site.images.logo}
+            alt=""
+            width={200}
+            height={48}
+            loading="lazy"
+            decoding="async"
+            className="h-6 w-auto"
+          />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {site.tagline} Building AI systems, computer-vision pipelines and
             production web products from Shenzhen.
@@ -15,6 +23,10 @@ export function Footer() {
           <img
             src={site.images.signature}
             alt={`${site.name} signature`}
+            width={420}
+            height={160}
+            loading="lazy"
+            decoding="async"
             className="mt-6 h-12 w-auto opacity-80 mix-blend-multiply dark:mix-blend-lighten dark:invert"
           />
         </div>

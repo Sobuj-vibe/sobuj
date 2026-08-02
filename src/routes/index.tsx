@@ -126,6 +126,10 @@ function Index() {
             <img
               src={site.images.portrait}
               alt={`Architectural sketch portrait of ${site.name}`}
+              width={880}
+              height={1100}
+              decoding="async"
+              fetchPriority="high"
               className="portrait-blend relative w-full object-cover"
             />
             <p className="technical-label relative mt-2 text-right">
