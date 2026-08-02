@@ -21,6 +21,7 @@ import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminBlogRouteImport } from './routes/_authenticated/admin.blog'
+import { Route as AuthenticatedAdminPagesRouteImport } from './routes/_authenticated/admin.pages'
 import { Route as AuthenticatedAdminPortfolioRouteImport } from './routes/_authenticated/admin.portfolio'
 
 const IndexRoute = IndexRouteImport.update({
@@ -82,6 +83,11 @@ const AuthenticatedAdminBlogRoute = AuthenticatedAdminBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
+const AuthenticatedAdminPagesRoute = AuthenticatedAdminPagesRouteImport.update({
+  id: '/pages',
+  path: '/pages',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
 const AuthenticatedAdminPortfolioRoute =
   AuthenticatedAdminPortfolioRouteImport.update({
     id: '/portfolio',
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
 }
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/_authenticated/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/_authenticated/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/_authenticated/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/portfolio/'
     | '/admin/blog'
+    | '/admin/pages'
     | '/admin/portfolio'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/portfolio'
     | '/admin/blog'
+    | '/admin/pages'
     | '/admin/portfolio'
     | '/admin'
   id:
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/portfolio/'
     | '/_authenticated/admin/blog'
+    | '/_authenticated/admin/pages'
     | '/_authenticated/admin/portfolio'
     | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
@@ -275,6 +287,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminBlogRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/pages': {
+      id: '/_authenticated/admin/pages'
+      path: '/pages'
+      fullPath: '/admin/pages'
+      preLoaderRoute: typeof AuthenticatedAdminPagesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/_authenticated/admin/portfolio': {
       id: '/_authenticated/admin/portfolio'
       path: '/portfolio'
@@ -287,12 +306,14 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedAdminRouteChildren {
   AuthenticatedAdminBlogRoute: typeof AuthenticatedAdminBlogRoute
+  AuthenticatedAdminPagesRoute: typeof AuthenticatedAdminPagesRoute
   AuthenticatedAdminPortfolioRoute: typeof AuthenticatedAdminPortfolioRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
   AuthenticatedAdminBlogRoute: AuthenticatedAdminBlogRoute,
+  AuthenticatedAdminPagesRoute: AuthenticatedAdminPagesRoute,
   AuthenticatedAdminPortfolioRoute: AuthenticatedAdminPortfolioRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
