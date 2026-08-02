@@ -24,7 +24,14 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-hairline bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center justify-between px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label={site.name}>
-          <img src={site.images.logo} alt="" className="h-6 w-auto" />
+          <img
+            src={site.images.logo}
+            alt=""
+            width={200}
+            height={48}
+            decoding="async"
+            className="h-6 w-auto"
+          />
           <span className="sr-only">{site.name}</span>
         </Link>
 

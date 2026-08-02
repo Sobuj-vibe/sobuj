@@ -113,6 +113,10 @@ function About() {
             data-reveal
             src={site.images.signature}
             alt={`${site.name} signature`}
+            width={420}
+            height={160}
+            loading="lazy"
+            decoding="async"
             className="mt-10 h-16 w-auto opacity-85 mix-blend-multiply dark:mix-blend-lighten dark:invert"
           />
         </Reveal>
