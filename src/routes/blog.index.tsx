@@ -70,7 +70,7 @@ function BlogIndex() {
       <div className="mt-10 flex flex-wrap items-center gap-2">
         <Link
           to="/blog"
-          search={{ tag: undefined }}
+          search={{}}
           className={
             "border px-4 py-2 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors " +
             (!tag
