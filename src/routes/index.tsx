@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Selected AI, computer vision and full-stack engineering work by Sobuj Hossen.",
+          "Real-life problem solver. AI engineer, computer vision researcher and full-stack software engineer based in Shenzhen, China.",
       },
       { property: "og:image", content: site.images.portrait },
       { name: "twitter:image", content: site.images.portrait },

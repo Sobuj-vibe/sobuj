@@ -86,17 +86,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Portfolio of Sobuj Hossen: AI engineer, computer vision researcher and full-stack software engineer based in Shenzhen, China.",
+          "Real-life problem solver. AI engineer, computer vision researcher and full-stack software engineer based in Shenzhen, China.",
       },
       { name: "author", content: "Sobuj Hossen" },
       { property: "og:title", content: "Sobuj Hossen — AI Engineer & Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "AI, computer vision and full-stack engineering work by Sobuj Hossen.",
+          "Real-life problem solver. AI engineer, computer vision researcher and full-stack software engineer based in Shenzhen, China.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sobuj Hossen — AI Engineer & Full-Stack Developer" },
+      { name: "twitter:description", content: "Real-life problem solver. AI engineer, computer vision researcher and full-stack software engineer based in Shenzhen, China." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3265da7a-eee9-4076-88ee-2ae9df862e67/id-preview-4192c94d--a495bf49-c0f0-4903-aa87-a0c99580616a.lovable.app-1785677629860.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3265da7a-eee9-4076-88ee-2ae9df862e67/id-preview-4192c94d--a495bf49-c0f0-4903-aa87-a0c99580616a.lovable.app-1785677629860.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -109,7 +113,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
