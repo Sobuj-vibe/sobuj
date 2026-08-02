@@ -144,6 +144,14 @@ function Index() {
         className="border-b border-hairline"
         stagger={0.09}
       >
+        <LogoCloudBlock />
+      </Reveal>
+
+      <Reveal
+        as="section"
+        className="border-b border-hairline"
+        stagger={0.09}
+      >
         <div className="mx-auto grid w-full max-w-[1240px] grid-cols-2 gap-px px-5 sm:px-8 lg:grid-cols-4">
           {quickStats.map((stat) => (
             <div key={stat.label} data-reveal className="py-10 pr-6">
