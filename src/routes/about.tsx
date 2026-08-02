@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { site } from "@/lib/site";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { breadcrumbs, canonical, jsonLd, personSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -19,6 +20,25 @@ export const Route = createFileRoute("/about")({
         content:
           "The background, disciplines and working principles behind Sobuj Hossen's engineering practice.",
       },
+      { property: "og:image", content: site.images.portrait },
+      { name: "twitter:image", content: site.images.portrait },
+      ...canonical("/about").meta,
+    ],
+    links: canonical("/about").links,
+    scripts: [
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "About Sobuj Hossen",
+        url: `${site.website}/about`,
+        mainEntity: personSchema,
+      }),
+      jsonLd(
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]),
+      ),
     ],
   }),
   component: About,
