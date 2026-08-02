@@ -202,20 +202,8 @@
 .portrait-blend {
   mix-blend-mode: multiply;
   filter: contrast(1.04) saturate(0.9);
-  -webkit-mask-image: radial-gradient(
-    68% 62% at 50% 42%,
-    #000 22%,
-    rgba(0, 0, 0, 0.82) 45%,
-    rgba(0, 0, 0, 0.35) 68%,
-    transparent 88%
-  );
-  mask-image: radial-gradient(
-    68% 62% at 50% 42%,
-    #000 22%,
-    rgba(0, 0, 0, 0.82) 45%,
-    rgba(0, 0, 0, 0.35) 68%,
-    transparent 88%
-  );
+  -webkit-mask-image: linear-gradient(to right, #000 0 30%, rgba(0, 0, 0, 0) 65%);
+  mask-image: linear-gradient(to right, #000 0 30%, rgba(0, 0, 0, 0) 65%);
 }
 
 :root:not(.light) .portrait-blend {
