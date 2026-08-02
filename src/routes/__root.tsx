@@ -10,6 +10,12 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+// Vite 8's dev server bundles client modules under /assets/*, so the `?url`
+// path (/src/styles.css) 404s in dev and the preview renders unstyled.
+// Side-effect import lets the dev bundler inject the stylesheet instead.
+if (import.meta.env.DEV) {
+  void import("../styles.css");
+}
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "../lib/theme";
 import { Header } from "../components/layout/Header";
