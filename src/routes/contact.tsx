@@ -9,6 +9,7 @@ import { sendContactMessage } from "@/lib/content.functions";
 import { site } from "@/lib/site";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { breadcrumbs, canonical, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,6 +25,22 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Start a project conversation with Sobuj Hossen.",
       },
+      ...canonical("/contact").meta,
+    ],
+    links: canonical("/contact").links,
+    scripts: [
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contact Sobuj Hossen",
+        url: `${site.website}/contact`,
+      }),
+      jsonLd(
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]),
+      ),
     ],
   }),
   component: Contact,
