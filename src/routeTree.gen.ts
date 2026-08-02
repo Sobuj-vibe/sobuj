@@ -21,6 +21,7 @@ import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminBlogRouteImport } from './routes/_authenticated/admin.blog'
+import { Route as AuthenticatedAdminMessagesRouteImport } from './routes/_authenticated/admin.messages'
 import { Route as AuthenticatedAdminPagesRouteImport } from './routes/_authenticated/admin.pages'
 import { Route as AuthenticatedAdminPortfolioRouteImport } from './routes/_authenticated/admin.portfolio'
 
@@ -83,6 +84,12 @@ const AuthenticatedAdminBlogRoute = AuthenticatedAdminBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
+const AuthenticatedAdminMessagesRoute =
+  AuthenticatedAdminMessagesRouteImport.update({
+    id: '/messages',
+    path: '/messages',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 const AuthenticatedAdminPagesRoute = AuthenticatedAdminPagesRouteImport.update({
   id: '/pages',
   path: '/pages',
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
   '/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -120,6 +128,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
   '/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -137,6 +146,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/_authenticated/admin/blog': typeof AuthenticatedAdminBlogRoute
+  '/_authenticated/admin/messages': typeof AuthenticatedAdminMessagesRoute
   '/_authenticated/admin/pages': typeof AuthenticatedAdminPagesRoute
   '/_authenticated/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/portfolio/'
     | '/admin/blog'
+    | '/admin/messages'
     | '/admin/pages'
     | '/admin/portfolio'
     | '/admin/'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/portfolio'
     | '/admin/blog'
+    | '/admin/messages'
     | '/admin/pages'
     | '/admin/portfolio'
     | '/admin'
@@ -184,6 +196,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/portfolio/'
     | '/_authenticated/admin/blog'
+    | '/_authenticated/admin/messages'
     | '/_authenticated/admin/pages'
     | '/_authenticated/admin/portfolio'
     | '/_authenticated/admin/'
@@ -287,6 +300,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminBlogRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/messages': {
+      id: '/_authenticated/admin/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AuthenticatedAdminMessagesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/_authenticated/admin/pages': {
       id: '/_authenticated/admin/pages'
       path: '/pages'
@@ -306,6 +326,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedAdminRouteChildren {
   AuthenticatedAdminBlogRoute: typeof AuthenticatedAdminBlogRoute
+  AuthenticatedAdminMessagesRoute: typeof AuthenticatedAdminMessagesRoute
   AuthenticatedAdminPagesRoute: typeof AuthenticatedAdminPagesRoute
   AuthenticatedAdminPortfolioRoute: typeof AuthenticatedAdminPortfolioRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
@@ -313,6 +334,7 @@ interface AuthenticatedAdminRouteChildren {
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
   AuthenticatedAdminBlogRoute: AuthenticatedAdminBlogRoute,
+  AuthenticatedAdminMessagesRoute: AuthenticatedAdminMessagesRoute,
   AuthenticatedAdminPagesRoute: AuthenticatedAdminPagesRoute,
   AuthenticatedAdminPortfolioRoute: AuthenticatedAdminPortfolioRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
