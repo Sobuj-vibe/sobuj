@@ -220,8 +220,8 @@
 
 :root:not(.light) .portrait-blend {
   mix-blend-mode: luminosity;
-  filter: contrast(1.06) brightness(0.86) sepia(0.12);
-  opacity: 0.92;
+  filter: contrast(1.12) brightness(0.62) sepia(0.14);
+  opacity: 0.95;
 }
 
 .prose-ink {
