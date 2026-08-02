@@ -8,6 +8,7 @@ import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PortfolioCard } from "@/components/PortfolioCard";
+import { canonical, jsonLd, personSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => {
@@ -30,6 +31,20 @@ export const Route = createFileRoute("/")({
         content:
           "Selected AI, computer vision and full-stack engineering work by Sobuj Hossen.",
       },
+      { property: "og:image", content: site.images.portrait },
+      { name: "twitter:image", content: site.images.portrait },
+      ...canonical("/").meta,
+    ],
+    links: canonical("/").links,
+    scripts: [
+      jsonLd(personSchema),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: `${site.name} — Portfolio`,
+        url: site.website,
+        author: { "@type": "Person", name: site.name },
+      }),
     ],
   }),
   component: Index,

@@ -6,6 +6,7 @@ import { portfolioListQuery } from "@/lib/queries";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PortfolioCard } from "@/components/PortfolioCard";
 import { Reveal } from "@/components/motion/Reveal";
+import { canonical } from "@/lib/seo";
 
 export const Route = createFileRoute("/portfolio/")({
   loader: ({ context }) => {
@@ -24,9 +25,20 @@ export const Route = createFileRoute("/portfolio/")({
         property: "og:description",
         content: "Case studies across AI, computer vision and web engineering.",
       },
+      ...canonical("/portfolio").meta,
     ],
+    links: canonical("/portfolio").links,
   }),
   component: PortfolioIndex,
+  errorComponent: () => (
+    <div className="mx-auto max-w-[1240px] px-5 py-32 sm:px-8">
+      <p className="technical-label">Read error</p>
+      <h1 className="mt-4 text-3xl">Projects couldn&apos;t be loaded.</h1>
+      <p className="mt-4 text-sm text-muted-foreground">
+        The content service didn&apos;t answer. Try refreshing in a moment.
+      </p>
+    </div>
+  ),
 });
 
 function PortfolioIndex() {

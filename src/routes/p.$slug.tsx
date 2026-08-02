@@ -4,18 +4,32 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import DOMPurify from "dompurify";
 import { pageQuery } from "@/lib/queries";
+import { canonical } from "@/lib/seo";
 
 export const Route = createFileRoute("/p/$slug")({
   loader: async ({ context, params }) => {
     const page = await context.queryClient.ensureQueryData(pageQuery(params.slug));
     if (!page) throw notFound();
-    return { title: page.seo_title ?? page.title, description: page.seo_description };
+    return {
+      slug: page.slug,
+      title: page.seo_title ?? page.title,
+      description: page.seo_description,
+    };
   },
   head: ({ loaderData }) => {
+    if (!loaderData) {
+      return {
+        meta: [
+          { title: "Page unavailable — Sobuj Hossen" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
+    }
     const title = loaderData?.title ?? "Page — Sobuj Hossen";
     const description =
       loaderData?.description ??
       "A page from the studio of Sobuj Hossen — AI engineer and full-stack developer in Shenzhen.";
+    const link = canonical(`/p/${loaderData.slug}`);
     return {
       meta: [
         { title },
@@ -24,7 +38,9 @@ export const Route = createFileRoute("/p/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
+        ...link.meta,
       ],
+      links: link.links,
     };
   },
   errorComponent: () => (

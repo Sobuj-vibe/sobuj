@@ -34,7 +34,9 @@ export const listPosts = createServerFn({ method: "GET" }).handler(async () => {
   const { getPublicClient } = await import("./supabase-public.server");
   const { data, error } = await getPublicClient()
     .from("blog_posts")
-    .select("id, slug, title, excerpt, cover_url, tags, published_at, reading_minutes")
+    .select(
+      "id, slug, title, excerpt, cover_url, tags, published_at, reading_minutes, views",
+    )
     .eq("status", "published")
     .order("published_at", { ascending: false });
   if (error) throw new Error(error.message);
@@ -67,6 +69,18 @@ export const getPage = createServerFn({ method: "GET" })
       .maybeSingle();
     if (error) throw new Error(error.message);
     return data;
+  });
+
+/** Bumps the view counter for a published note and returns the new total. */
+export const registerPostView = createServerFn({ method: "POST" })
+  .inputValidator((raw: unknown) => slugInput.parse(raw))
+  .handler(async ({ data: input }) => {
+    const { getPublicClient } = await import("./supabase-public.server");
+    const { data, error } = await getPublicClient().rpc("increment_post_views", {
+      _slug: input.slug,
+    });
+    if (error) throw new Error(error.message);
+    return { views: data ?? 0 };
   });
 
 export const listPages = createServerFn({ method: "GET" }).handler(async () => {
