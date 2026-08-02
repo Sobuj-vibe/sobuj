@@ -15,7 +15,7 @@ export function Footer() {
           <img
             src={site.images.signature}
             alt={`${site.name} signature`}
-            className="mt-6 h-12 w-auto opacity-80 mix-blend-difference dark:invert-0"
+            className="mt-6 h-12 w-auto opacity-80 mix-blend-multiply dark:mix-blend-screen dark:invert"
           />
         </div>
 
