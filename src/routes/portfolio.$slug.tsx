@@ -114,20 +114,48 @@ function PortfolioDetail() {
               </ul>
             </div>
           ) : null}
-          {item.role && (
+          {item.client && (
             <div>
-              <p className="technical-label">Role</p>
-              <p className="mt-3 text-sm text-muted-foreground">{item.role}</p>
+              <p className="technical-label">Client</p>
+              <p className="mt-3 text-sm text-muted-foreground">{item.client}</p>
+            </div>
+          )}
+          {item.repo_url && (
+            <div>
+              <p className="technical-label">Source</p>
+              <a
+                href={item.repo_url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-block text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                Repository
+              </a>
             </div>
           )}
         </aside>
 
         <div className="prose-ink max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {item.body ?? item.summary ?? ""}
+            {item.description || item.summary || ""}
           </ReactMarkdown>
         </div>
       </div>
+
+      {item.gallery?.length ? (
+        <Reveal className="mt-16 grid gap-6 sm:grid-cols-2">
+          {item.gallery.map((src: string) => (
+            <img
+              key={src}
+              data-reveal
+              src={src}
+              alt={`${item.title} detail`}
+              loading="lazy"
+              className="w-full border border-hairline object-cover"
+            />
+          ))}
+        </Reveal>
+      ) : null}
     </article>
   );
 }
