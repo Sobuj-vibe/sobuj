@@ -75,12 +75,23 @@ export const getPage = createServerFn({ method: "GET" })
 export const registerPostView = createServerFn({ method: "POST" })
   .inputValidator((raw: unknown) => slugInput.parse(raw))
   .handler(async ({ data: input }) => {
-    const { getPublicClient } = await import("./supabase-public.server");
-    const { data, error } = await getPublicClient().rpc("increment_post_views", {
-      _slug: input.slug,
-    });
-    if (error) throw new Error(error.message);
-    return { views: data ?? 0 };
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: current, error: readError } = await supabaseAdmin
+      .from("blog_posts")
+      .select("id, views")
+      .eq("slug", input.slug)
+      .eq("status", "published")
+      .maybeSingle();
+    if (readError) throw new Error(readError.message);
+    if (!current) return { views: 0 };
+
+    const next = (current.views ?? 0) + 1;
+    const { error: writeError } = await supabaseAdmin
+      .from("blog_posts")
+      .update({ views: next })
+      .eq("id", current.id);
+    if (writeError) throw new Error(writeError.message);
+    return { views: next };
   });
 
 export const listPages = createServerFn({ method: "GET" }).handler(async () => {
