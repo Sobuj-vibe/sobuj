@@ -217,6 +217,19 @@ function PortfolioDetail() {
           ))}
         </Reveal>
       ) : null}
+
+      {related.length ? (
+        <section className="mt-24 border-t border-hairline pt-12">
+          <p className="technical-label">More {item.category} work</p>
+          <Reveal className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((other) => (
+              <div key={other.id} data-reveal>
+                <PortfolioCard item={other} />
+              </div>
+            ))}
+          </Reveal>
+        </section>
+      ) : null}
     </article>
   );
 }
