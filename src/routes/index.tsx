@@ -102,15 +102,20 @@ function Index() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-full max-w-sm"
+            className="relative mx-auto w-full max-w-md"
           >
-            <div className="absolute -inset-3 border border-hairline" aria-hidden />
+            <div
+              className="pointer-events-none absolute -inset-10 bg-[radial-gradient(ellipse_at_50%_40%,var(--color-primary),transparent_65%)] opacity-[0.14] blur-2xl"
+              aria-hidden
+            />
             <img
               src={site.images.portrait}
               alt={`Architectural sketch portrait of ${site.name}`}
-              className="relative w-full object-cover"
+              className="portrait-blend relative w-full object-cover"
             />
-            <p className="technical-label mt-4 text-right">Fig. 01 — the engineer</p>
+            <p className="technical-label relative mt-2 text-right">
+              Fig. 01 — the engineer
+            </p>
           </motion.div>
         </div>
       </section>

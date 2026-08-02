@@ -198,6 +198,32 @@
   opacity: 0;
 }
 
+/* Hero portrait — dissolves into the canvas instead of reading as a cutout */
+.portrait-blend {
+  mix-blend-mode: multiply;
+  filter: contrast(1.04) saturate(0.9);
+  -webkit-mask-image: radial-gradient(
+    52% 54% at 50% 46%,
+    #000 34%,
+    rgba(0, 0, 0, 0.78) 58%,
+    rgba(0, 0, 0, 0.3) 78%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    52% 54% at 50% 46%,
+    #000 34%,
+    rgba(0, 0, 0, 0.78) 58%,
+    rgba(0, 0, 0, 0.3) 78%,
+    transparent 100%
+  );
+}
+
+:root:not(.light) .portrait-blend {
+  mix-blend-mode: luminosity;
+  filter: contrast(1.12) brightness(0.62) sepia(0.14);
+  opacity: 0.95;
+}
+
 .prose-ink {
   color: var(--color-foreground);
   line-height: 1.75;
