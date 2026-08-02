@@ -17,7 +17,7 @@ export function Footer() {
             className="h-6 w-auto"
           />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            {site.tagline} Building AI systems, computer-vision pipelines and
+            {site.tagline} Building AI systems, computer-vision pipelines, and
             production web products from Shenzhen.
           </p>
           <img
@@ -88,7 +88,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p className="technical-label">Ref: SK-02-A · Built in Shenzhen</p>
+          <p className="technical-label">DESIGNED & DEVELOPED BY SOBUJ HOSSEN</p>
         </div>
       </div>
     </footer>

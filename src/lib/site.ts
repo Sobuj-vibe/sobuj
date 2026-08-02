@@ -35,8 +35,8 @@ export const navLinks = [
 
 export const quickStats = [
   { value: "6+", label: "Years building" },
-  { value: "40+", label: "Projects shipped" },
-  { value: "12", label: "Countries served" },
+  { value: "100+", label: "Projects shipped" },
+  { value: "8", label: "Countries served" },
   { value: "3", label: "Disciplines merged" },
 ];
 

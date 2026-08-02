@@ -86,8 +86,8 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
             >
-              I&apos;m {site.shortName} — {site.roles.join(" · ")}. I build systems
-              that see, decide and ship: vision models on the edge, typed
+              I&apos;m {site.shortName},&nbsp; an {site.roles.join(" · ")}. I build systems
+              that see, decide, and ship: vision models on the edge, typed
               full-stack products, and websites that earn their keep.
             </motion.p>
 
