@@ -130,7 +130,7 @@ function Index() {
               height={950}
               decoding="async"
               fetchPriority="high"
-              className="portrait-blend relative w-full object-cover"
+              className="relative w-full object-cover"
             />
             <p className="technical-label relative mt-2 text-right">
               Fig. 01 — the engineer
