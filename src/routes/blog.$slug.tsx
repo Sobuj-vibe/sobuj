@@ -82,7 +82,7 @@ function BlogPost() {
 
       <div className="prose-ink mt-12 max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {post.body ?? post.excerpt ?? ""}
+          {post.body || post.excerpt || ""}
         </ReactMarkdown>
       </div>
     </article>
