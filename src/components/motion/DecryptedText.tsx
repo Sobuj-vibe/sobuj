@@ -203,7 +203,7 @@ export default function DecryptedText({
             return prevRevealed;
           }
           if (pointerRef.current < orderRef.current.length) {
-            const idxToRemove = orderRef.current[pointerRef.current++];
+            const idxToRemove = orderRef.current[pointerRef.current++]!;
             const newRevealed = new Set(prevRevealed);
             newRevealed.delete(idxToRemove);
             setDisplayText(shuffleText(text, newRevealed));
