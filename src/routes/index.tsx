@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { portfolioListQuery } from "@/lib/queries";
 import { quickStats, services, site } from "@/lib/site";
 import LogoCloudBlock from "@/components/ui/logo-cloud-3";
-import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import DecryptedText from "@/components/motion/DecryptedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PortfolioCard } from "@/components/PortfolioCard";
@@ -75,11 +75,25 @@ function Index() {
               {site.location}
             </motion.p>
 
-            <SplitHeadline
-              text="Real-life problem solver."
-              accentFrom={2}
-              className="mt-6 text-[clamp(2.75rem,7vw,5.25rem)] leading-[0.98]"
-            />
+            <h1 className="mt-6 text-[clamp(2.75rem,7vw,5.25rem)] leading-[0.98]">
+              <DecryptedText
+                text="Real-life "
+                animateOn="view"
+                sequential
+                revealDirection="start"
+                speed={45}
+                encryptedClassName="text-muted-foreground/70"
+              />
+              <DecryptedText
+                text="problem solver."
+                animateOn="view"
+                sequential
+                revealDirection="start"
+                speed={45}
+                parentClassName="text-primary"
+                encryptedClassName="text-primary/50"
+              />
+            </h1>
 
             <motion.p
               initial={{ opacity: 0, y: 14 }}
