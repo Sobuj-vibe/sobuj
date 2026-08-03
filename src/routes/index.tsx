@@ -78,7 +78,7 @@ function Index() {
             <h1 className="mt-6 text-[clamp(2.75rem,7vw,5.25rem)] leading-[0.98]">
               <DecryptedText
                 text="Real-life "
-                animateOn="view"
+                animateOn="hover"
                 sequential
                 revealDirection="start"
                 speed={90}
@@ -86,7 +86,7 @@ function Index() {
               />
               <DecryptedText
                 text="problem solver."
-                animateOn="view"
+                animateOn="hover"
                 sequential
                 revealDirection="start"
                 speed={90}
