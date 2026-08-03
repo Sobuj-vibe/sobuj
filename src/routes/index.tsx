@@ -81,7 +81,7 @@ function Index() {
                 animateOn="view"
                 sequential
                 revealDirection="start"
-                speed={45}
+                speed={90}
                 encryptedClassName="text-muted-foreground/70"
               />
               <DecryptedText
@@ -89,7 +89,7 @@ function Index() {
                 animateOn="view"
                 sequential
                 revealDirection="start"
-                speed={45}
+                speed={90}
                 parentClassName="text-primary"
                 encryptedClassName="text-primary/50"
               />
